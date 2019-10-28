@@ -47,7 +47,7 @@ public class Unit : MonoBehaviour
         else { unit._controller = null; }
 
         obj.GetComponentInChildren<SpriteRenderer>().sprite = data.species.sprite;
-        obj.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1 - tile.coords.a;
+        obj.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0 - tile.coords.a;
 
         obj.GetComponent<DoubleClick>().subscribe(
             Camera.main.GetComponent<CameraFollow>().panToUnit);
@@ -158,7 +158,7 @@ public class Unit : MonoBehaviour
                 if (t > 0.5f && currentTile != target)
                 {
                     _currentTile = target;
-                    img.GetComponent<SpriteRenderer>().sortingOrder = 1 - target.coords.a;
+                    img.GetComponent<SpriteRenderer>().sortingOrder = 0 - target.coords.a;
                 }
                 transform.position = Vector2.Lerp(start, end, t);
                 yield return null;

@@ -87,11 +87,16 @@ public class CombatManager : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit =
-                Physics2D.Raycast(mousePos, Vector2.zero, 9999, LayerMask.GetMask(layerMask));
-            if (hit && hit.transform.tag == "Tile")
+            RaycastHit2D[] hit =
+                Physics2D.RaycastAll(mousePos, Vector2.zero, 9999, LayerMask.GetMask(layerMask));
+            if (hit.Length > 0)
             {
-                HexTile tile = hit.transform.GetComponent<HexTile>();
+                HexTile tile = hit[0].transform.GetComponent<HexTile>();
+                for (int ii = 1; ii < hit.Length; ii++)
+                {
+                    if (hit[ii].transform.position.y < tile.transform.position.y) { tile = hit[ii].transform.GetComponent<HexTile>(); }
+                }
+                //HexTile tile = hit.transform.GetComponent<HexTile>();
                 UIManager.setHexCursor(tile, true);
                 if (tile != Unit.current.currentTile)
                 {

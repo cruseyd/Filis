@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628480400710765099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8783026772094417670}
@@ -65,8 +65,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1526905735
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: de04ca2d179dfd649a99f1ef0ad43afb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -127,7 +127,7 @@ MonoBehaviour:
   occupant: {fileID: 0}
   _terrain: {fileID: 11400000, guid: 03f362edafd2dca4b865407384a262a2, type: 2}
   mainRenderer: {fileID: 2591829127925802449}
-  _coordsText: {fileID: 8898999190256930185}
+  _text: {fileID: 8898999190256930185}
   _telegraph: {fileID: 6184476326591155526}
 --- !u!60 &2035421280168978801
 PolygonCollider2D:
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 943466454484049153}
   - component: {fileID: 8898999190256930185}
   m_Layer: 9
-  m_Name: coords
+  m_Name: text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,8 +233,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1526905735
+  m_SortingLayer: 1
   m_SortingOrder: 0
 --- !u!33 &2666267043403028914
 MeshFilter:
@@ -434,8 +434,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1526905735
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6c1e3a9c2d56e4c46b6dc4afc763208c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

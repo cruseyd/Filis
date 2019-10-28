@@ -16,7 +16,7 @@ public class HexTile : MonoBehaviour {
     public Transform occupant = null;
     [SerializeField] private HexTerrain _terrain;
     [SerializeField] private Renderer mainRenderer;
-    [SerializeField] private TextMeshPro _coordsText;
+    [SerializeField] private TextMeshPro _text;
     [SerializeField] private Renderer _telegraph;   
     public static float outlineWidth = 0.1f;
     private RaycastHit hit;
@@ -29,8 +29,9 @@ public class HexTile : MonoBehaviour {
         mainRenderer.sortingOrder = -coords.a;
         _telegraph.sortingOrder = -coords.a;
         mainRenderer.material.color = terrain.color;
-        _coordsText.text = coords.name;
-        _coordsText.GetComponent<MeshRenderer>().sortingOrder = -coords.a;
+        _text.text = node.elevation.ToString();
+
+        _text.GetComponent<MeshRenderer>().sortingOrder = -coords.a;
 	}
     
 	public void Update() {
