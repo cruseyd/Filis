@@ -29,14 +29,8 @@ public class HexTile : MonoBehaviour {
         mainRenderer.sortingOrder = -coords.a;
         _telegraph.sortingOrder = -coords.a;
         mainRenderer.material.color = terrain.color;
-        _text.text = node.elevation.ToString();
-
+        _text.text = Mathf.Floor(node.elevation*10).ToString();
         _text.GetComponent<MeshRenderer>().sortingOrder = -coords.a;
-	}
-    
-	public void Update() {
-        //if (node.selectable) { highlight(Color.red); }
-        //else { resetColor(); }
 	}
     
 	public static void Spawn(Node node, Transform parent,
