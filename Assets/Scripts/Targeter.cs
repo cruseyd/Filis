@@ -144,7 +144,6 @@ public class MoveTargeter : Targeter
                             && (node.tile.terrain.movementCost + n.distance) <= _range
                             && (delta < 3))
                         {
-
                             node.parent = n;
                             node.distance = node.tile.terrain.movementCost + n.distance;
                             node.visited = true;

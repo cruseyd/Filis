@@ -68,7 +68,7 @@ SpriteRenderer:
   m_SortingLayerID: 1526905735
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de04ca2d179dfd649a99f1ef0ad43afb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d80f2b4d2fec8d540b0eaee1d62e31b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,12 +154,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.5, y: -0.2}
+    - - {x: -0.48747557, y: -1.2012762}
       - {x: -0.5, y: 0.2}
       - {x: 0, y: 0.4}
       - {x: 0.5, y: 0.2}
-      - {x: 0.5, y: -0.2}
-      - {x: 0, y: -0.4}
+      - {x: 0.49732804, y: -1.2051343}
+      - {x: 0.000012993813, y: -1.4060676}
 --- !u!1 &8751138539258266345
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,6 +51,7 @@ public class MoveCombatPhase : CombatPhase {
 	{
 		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
 		{
+            /*
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos,Vector2.zero);
 			if (hit) {
@@ -62,10 +63,26 @@ public class MoveCombatPhase : CombatPhase {
                         UIManager.setHexCursor(hitTile);
                         FieldMap.current.showSelectable();
                         UIManager.button(ButtonName.CONFIRM).gameObject.SetActive(true);
+                    } else
+                    {
+                        moveCommand?.Show(false);
                     }
 				}
 			}
-		}
+            */
+            HexTile hitTile = UIManager.GetClickedTile();
+            if (hitTile.selectable)
+            {
+                moveCommand = targeter.ChooseTarget(hitTile, true);
+                UIManager.setHexCursor(hitTile);
+                FieldMap.current.showSelectable();
+                UIManager.button(ButtonName.CONFIRM).gameObject.SetActive(true);
+            }
+            else
+            {
+                moveCommand?.Show(false);
+            }
+        }
 	}
 	public override void confirm (CombatManager mgr){
         CombatManager.IssueCommand(moveCommand);

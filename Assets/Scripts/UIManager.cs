@@ -81,6 +81,23 @@ public class UIManager : MonoBehaviour
         return instance._abilityButtons[index].GetComponent<Button>();
     }
 
+    public static HexTile GetClickedTile()
+    {
+        string[] layerMask = { "Tile" };
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D[] hit =
+            Physics2D.RaycastAll(mousePos, Vector2.zero, 9999, LayerMask.GetMask(layerMask));
+        if (hit.Length > 0)
+        {
+            HexTile tile = hit[0].transform.GetComponent<HexTile>();
+            for (int ii = 1; ii < hit.Length; ii++)
+            {
+                if (hit[ii].transform.position.y < tile.transform.position.y) { tile = hit[ii].transform.GetComponent<HexTile>(); }
+            }
+            return tile;
+        }
+        return null;
+    }
     public static void setUnitCursor(Unit unit)
     {
         if (unit == null)

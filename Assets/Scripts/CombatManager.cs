@@ -86,25 +86,14 @@ public class CombatManager : MonoBehaviour {
         }
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D[] hit =
-                Physics2D.RaycastAll(mousePos, Vector2.zero, 9999, LayerMask.GetMask(layerMask));
-            if (hit.Length > 0)
+            HexTile tile = UIManager.GetClickedTile();
+            UIManager.setHexCursor(tile, true);
+            if (tile != Unit.current.currentTile)
             {
-                HexTile tile = hit[0].transform.GetComponent<HexTile>();
-                for (int ii = 1; ii < hit.Length; ii++)
-                {
-                    if (hit[ii].transform.position.y < tile.transform.position.y) { tile = hit[ii].transform.GetComponent<HexTile>(); }
-                }
-                //HexTile tile = hit.transform.GetComponent<HexTile>();
-                UIManager.setHexCursor(tile, true);
-                if (tile != Unit.current.currentTile)
-                {
-                    UIManager.setTargetUI(tile, true);
-                } else
-                {
-                    UIManager.setTargetUI(null);
-                }
+                UIManager.setTargetUI(tile, true);
+            } else
+            {
+                UIManager.setTargetUI(null);
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))
