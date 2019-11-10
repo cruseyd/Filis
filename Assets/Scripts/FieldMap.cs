@@ -6,7 +6,7 @@ public class FieldMap : Map
 {
     public static FieldMap current;
     public int radius = 7;
-    public int numHeightLevels = 1;
+    public int numHeightLevels = 10;
     [SerializeField]
     private float xOffset;
     [SerializeField]
@@ -91,8 +91,7 @@ public class FieldMap : Map
                 if (toggle)
                 {
                     Vector2 spawnLocation = Position(n.coords);
-                    Vector2 offset = new Vector2(0, Mathf.Floor(n.elevation*10)*0.15f);
-                    //Vector2 offset = new Vector2(0, Mathf.Floor(n.elevation * numHeightLevels) * 0.17f);
+                    Vector2 offset = new Vector2(0, Mathf.Floor(n.elevation*numHeightLevels)*0.15f);
                     n.tile.transform.localPosition = spawnLocation + offset;
 
                 } else
@@ -104,4 +103,9 @@ public class FieldMap : Map
     }
 
     public override HexTile TileAt(HexCoords coords) { return graph.NodeAt(coords)?.tile; }
+
+    public int GetHeight(HexCoords coords)
+    {
+        return (int)Mathf.Floor(TileAt(coords).node.elevation*numHeightLevels);
+    }
 }

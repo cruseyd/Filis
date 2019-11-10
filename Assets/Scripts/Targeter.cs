@@ -123,7 +123,7 @@ public class MoveTargeter : Targeter
         process.Enqueue(start);
         start.visited = true;
         start.distance = 0;
-
+        FieldMap fieldMap = (FieldMap)Map.current;
         while (process.Count > 0)
         {
             Node n = process.Dequeue();
@@ -137,11 +137,14 @@ public class MoveTargeter : Targeter
                 {
                     foreach (Node node in n.neighbors)
                     {
-                        if (node != null
-                            && !node.visited
+                        if (node == null) { continue; }
+                        int delta = Mathf.Abs(fieldMap.GetHeight(n.coords) - fieldMap.GetHeight((node.coords)));
+                        if (!node.visited
                             && node.Passable(unit)
-                            && (node.tile.terrain.movementCost + n.distance) <= _range)
+                            && (node.tile.terrain.movementCost + n.distance) <= _range
+                            && (delta < 3))
                         {
+
                             node.parent = n;
                             node.distance = node.tile.terrain.movementCost + n.distance;
                             node.visited = true;
