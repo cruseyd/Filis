@@ -25,7 +25,7 @@ public class FieldMap : Map
         graph = new HexGraph(radius);
         Generate();
         SpawnTiles();
-        setTopography(true);
+        //setTopography(true);
         Camera.main.GetComponent<CameraFollow>().maxSize = (radius + 1) * Mathf.Sqrt(2.0f / 3);
     }
 

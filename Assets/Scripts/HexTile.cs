@@ -26,11 +26,11 @@ public class HexTile : MonoBehaviour {
     public bool selectable { get { return node.selectable; } set { node.selectable = value; } }
 
 	public void Start() {
-        mainRenderer.sortingOrder = -coords.a;
-        _telegraph.sortingOrder = -coords.a;
+        //mainRenderer.sortingOrder = -coords.a;
+        //_telegraph.sortingOrder = -coords.a;
         mainRenderer.material.color = terrain.color;
         _text.text = Mathf.Floor(node.elevation*10).ToString();
-        _text.GetComponent<MeshRenderer>().sortingOrder = -coords.a;
+        //_text.GetComponent<MeshRenderer>().sortingOrder = -coords.a;
 	}
     
 	public static void Spawn(Node node, Transform parent,

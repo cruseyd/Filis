@@ -2442,7 +2442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hexPrefab: {fileID: 2952040942192522044, guid: 6df02098223765947811127a4a8c61d4,
     type: 3}
-  radius: 5
+  radius: 2
   numHeightLevels: 10
   xOffset: 0
   yOffset: 0
