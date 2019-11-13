@@ -165,7 +165,7 @@ public class UIManager : MonoBehaviour
     public static void setHexCursor(HexTile tile, bool animate = false)
     {
         hexCursor.SetActive(true);
-        hexCursor.GetComponentInChildren<Renderer>().sortingOrder = -tile.coords.a;
+        //hexCursor.GetComponentInChildren<Renderer>().sortingOrder = -tile.coords.a;
         if (animate)
         {
             
