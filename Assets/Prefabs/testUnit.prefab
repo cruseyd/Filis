@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7021426150328172226}
   - component: {fileID: 9144153804517651445}
   - component: {fileID: 4203714979168181253}
-  - component: {fileID: 6249095640190050369}
   m_Layer: 8
   m_Name: testUnit
   m_TagString: Unit
@@ -104,21 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 0}
---- !u!114 &6249095640190050369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4291842842039063607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d344d6ad11d2baf48843c0b99bd5a7db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  depthOffset: 0
-  heightOffset: 0.35
-  sprite: {fileID: 7641085242892156190}
 --- !u!1 &4579786026005493567
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7641085242892156190}
   - component: {fileID: 1949367833813218534}
+  - component: {fileID: 6978554498606599109}
   m_Layer: 8
   m_Name: img
   m_TagString: Unit
@@ -198,3 +183,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6978554498606599109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579786026005493567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d344d6ad11d2baf48843c0b99bd5a7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  depthOffset: 0
+  heightOffset: 0.35
+  anchor: {fileID: 3647570348044414962}

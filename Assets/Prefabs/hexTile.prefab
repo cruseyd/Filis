@@ -92,9 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d344d6ad11d2baf48843c0b99bd5a7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depthOffset: -1
+  depthOffset: 0.98
   heightOffset: 0
-  sprite: {fileID: 1779293859771142953}
+  anchor: {fileID: 2952040942192522033}
 --- !u!1 &2952040942192522044
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,10 +145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupant: {fileID: 0}
-  _tileRenderer: {fileID: 5014664243234054324}
-  _fgRenderer: {fileID: 6611384260252279073}
-  _bgRenderer: {fileID: 1165524760718280590}
-  mainRenderer: {fileID: 2591829127925802449}
+  _topSprite: {fileID: 4604741782638791789}
+  _fgSprite: {fileID: 8942793199721345141}
+  _bgSprite: {fileID: 6905822407322549598}
+  _mainSprite: {fileID: 9036958629950454657}
   _text: {fileID: 8898999190256930185}
   _telegraph: {fileID: 6184476326591155526}
 --- !u!60 &2035421280168978801
@@ -274,9 +274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d344d6ad11d2baf48843c0b99bd5a7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depthOffset: 0.9
+  depthOffset: 0.99
   heightOffset: 0
-  sprite: {fileID: 8504174307471502216}
+  anchor: {fileID: 2952040942192522033}
 --- !u!1 &6905822407322549598
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   depthOffset: 0.5
   heightOffset: 0
-  sprite: {fileID: 755951971026927806}
+  anchor: {fileID: 2952040942192522033}
 --- !u!1 &8751138539258266345
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   depthOffset: -0.5
   heightOffset: 0
-  sprite: {fileID: 363685368752920899}
+  anchor: {fileID: 2952040942192522033}
 --- !u!1 &9036958629950454657
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,4 +769,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   depthOffset: 1
   heightOffset: 0
-  sprite: {fileID: 8783026772094417670}
+  anchor: {fileID: 2952040942192522033}

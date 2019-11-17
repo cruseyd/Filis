@@ -24,6 +24,7 @@ public class FieldMap : Map
         Generate();
         SpawnTiles();
         setTopography(true);
+        Variagate(Color.cyan, Color.red);
         Camera.main.GetComponent<CameraFollow>().maxSize = (radius + 1) * Mathf.Sqrt(2.0f / 3);
     }
 
@@ -104,5 +105,42 @@ public class FieldMap : Map
     public int GetHeight(HexCoords coords)
     {
         return (int)Mathf.Floor(TileAt(coords).node.elevation*numHeightLevels);
+    }
+
+    public void ComputeShadows()
+    {
+        graph.resetNodes();
+        graph.Center().Visit(
+            (n) => {
+                float obstruction = 0;
+                Node tmp = graph.NodeAt(n.coords + HexCoords.left);
+                if (tmp != null) { obstruction += Mathf.Max(tmp.elevation - n.elevation,0); }
+
+                tmp = graph.NodeAt(n.coords + HexCoords.upLeft);
+                if (tmp != null) { obstruction += Mathf.Max(tmp.elevation - n.elevation,0); }
+
+                n.tile.darken(obstruction);
+            }
+        );
+
+    }
+
+    public void Variagate(Color c0, Color c1)
+    {
+        xOffset = Random.Range(0, 999999);
+        yOffset = Random.Range(0, 999999);
+        
+        graph.resetNodes();
+        graph.Center().Visit(
+            (n) => {
+                float s = getSample(n.tile.transform.position, 5f);
+
+                n.tile.tint(Color.Lerp(c0, c1, n.elevation));
+            }
+        );
+    }
+    public void doVariagate()
+    {
+        Variagate(new Color(0.5f,1,1), new Color(1,0.5f,1));
     }
 }
