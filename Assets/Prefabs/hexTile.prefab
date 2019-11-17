@@ -145,7 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupant: {fileID: 0}
-  _terrain: {fileID: 11400000, guid: 03f362edafd2dca4b865407384a262a2, type: 2}
+  _tileRenderer: {fileID: 5014664243234054324}
+  _fgRenderer: {fileID: 6611384260252279073}
+  _bgRenderer: {fileID: 1165524760718280590}
   mainRenderer: {fileID: 2591829127925802449}
   _text: {fileID: 8898999190256930185}
   _telegraph: {fileID: 6184476326591155526}
@@ -229,7 +231,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d71b1cf6f4dd9744fa9f985e3c90897d, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +252,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 742cd61ca9cace048ba65d3ce1057596, type: 3}
-  m_Color: {r: 1, g: 0.07490595, b: 0, a: 0.30588236}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -286,7 +288,6 @@ GameObject:
   - component: {fileID: 755951971026927806}
   - component: {fileID: 1165524760718280590}
   - component: {fileID: 3028732260687402958}
-  - component: {fileID: 3616440739210859579}
   m_Layer: 9
   m_Name: bg
   m_TagString: Untagged
@@ -325,7 +326,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d71b1cf6f4dd9744fa9f985e3c90897d, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -346,7 +347,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: 742cd61ca9cace048ba65d3ce1057596, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.40392157}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -371,24 +372,6 @@ MonoBehaviour:
   depthOffset: 0.5
   heightOffset: 0
   sprite: {fileID: 755951971026927806}
---- !u!114 &3616440739210859579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905822407322549598}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glowColor: {r: 1, g: 0, b: 0, a: 1}
-  glowBrightness: 2
-  outlineWidth: 1
-  alphaThreshold: 0.01
-  drawOutside: 0
-  enableInstancing: 0
 --- !u!1 &8751138539258266345
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +590,6 @@ GameObject:
   - component: {fileID: 363685368752920899}
   - component: {fileID: 6611384260252279073}
   - component: {fileID: 7671001849471422828}
-  - component: {fileID: 6910190447607289829}
   m_Layer: 9
   m_Name: fg
   m_TagString: Untagged
@@ -646,7 +628,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d71b1cf6f4dd9744fa9f985e3c90897d, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -667,7 +649,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 742cd61ca9cace048ba65d3ce1057596, type: 3}
-  m_Color: {r: 0.7735849, g: 0.13501246, b: 0.13501246, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -692,24 +674,6 @@ MonoBehaviour:
   depthOffset: -0.5
   heightOffset: 0
   sprite: {fileID: 363685368752920899}
---- !u!114 &6910190447607289829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8942793199721345141}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glowColor: {r: 1, g: 0, b: 0, a: 1}
-  glowBrightness: 2
-  outlineWidth: 1
-  alphaThreshold: 0.01
-  drawOutside: 0
-  enableInstancing: 0
 --- !u!1 &9036958629950454657
 GameObject:
   m_ObjectHideFlags: 0

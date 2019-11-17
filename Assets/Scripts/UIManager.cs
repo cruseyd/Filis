@@ -168,7 +168,6 @@ public class UIManager : MonoBehaviour
         //hexCursor.GetComponentInChildren<Renderer>().sortingOrder = -tile.coords.a;
         if (animate)
         {
-            
             _instance.StartCoroutine(slide(hexCursor.transform,
                 hexCursor.transform.position,
                 tile.transform.position, 0.1f));

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public abstract class Map : MonoBehaviour
 {
     public static Map current;
-
     public GameObject hexPrefab;
     public HexGraph graph;
 

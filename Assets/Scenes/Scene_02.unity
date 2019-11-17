@@ -1432,16 +1432,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 15422ff017d90c94b87751174424d0c8, type: 2}
     - {fileID: 11400000, guid: 500ee8432d18201459814de67b985468, type: 2}
     - {fileID: 11400000, guid: a9dc75e912eab564496abf476dc96c7a, type: 2}
-    team: 1
-  - species: {fileID: 11400000, guid: 7f0a3d170c1cc8347969d35005a65f08, type: 2}
-    movement: 3
-    speed: 12
-    maxHealth: 150
-    abilities:
-    - {fileID: 11400000, guid: 7bfdc7dad3e7e9a49b50db5a8e5c7acc, type: 2}
-    - {fileID: 11400000, guid: 15422ff017d90c94b87751174424d0c8, type: 2}
-    - {fileID: 11400000, guid: bdbf74a1ff24a7c46a3742528405faca, type: 2}
-    - {fileID: 11400000, guid: 471f83d463933154687405e640c5f6b6, type: 2}
     team: 0
   unitPrefab: {fileID: 4291842842039063607, guid: a79f637a5adecd8439c52dea8f18403c,
     type: 3}
@@ -2464,10 +2454,11 @@ MonoBehaviour:
   hexPrefab: {fileID: 2952040942192522044, guid: 6df02098223765947811127a4a8c61d4,
     type: 3}
   radius: 2
-  numHeightLevels: 10
+  numHeightLevels: 3
   xOffset: 0
   yOffset: 0
   elevationSampleRate: 0.1
+  terrainPrefab: {fileID: 11400000, guid: 03f362edafd2dca4b865407384a262a2, type: 2}
 --- !u!4 &1417910219
 Transform:
   m_ObjectHideFlags: 0
