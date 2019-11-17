@@ -7,14 +7,27 @@ public class HexTile : MonoBehaviour {
 	
     public HexCoords coords { get { return node.coords; } }
 	
-    public HexTerrain terrain { get { return _terrain; } }
+    
     private Node _node;
     public Node node { get { return _node; } }
     public float elevation { get { return _node.elevation; } }
 
     // rendering / interaction
     public Transform occupant = null;
-    [SerializeField] private HexTerrain _terrain;
+    public HexTerrain terrain {
+        get { return _terrain; }
+        set
+        {
+            _terrain = value;
+            _tileRenderer.sprite = value.tileSprite;
+            _fgRenderer.sprite = value.foreground;
+            _bgRenderer.sprite = value.background;
+        }
+    }
+    private HexTerrain _terrain;
+    [SerializeField] private SpriteRenderer _tileRenderer;
+    [SerializeField] private SpriteRenderer _fgRenderer;
+    [SerializeField] private SpriteRenderer _bgRenderer;
     [SerializeField] private Renderer mainRenderer;
     [SerializeField] private TextMeshPro _text;
     [SerializeField] private Renderer _telegraph;   
@@ -26,20 +39,18 @@ public class HexTile : MonoBehaviour {
     public bool selectable { get { return node.selectable; } set { node.selectable = value; } }
 
 	public void Start() {
-        //mainRenderer.sortingOrder = -coords.a;
-        //_telegraph.sortingOrder = -coords.a;
         mainRenderer.material.color = terrain.color;
-        _text.text = Mathf.Floor(node.elevation*10).ToString();
-        //_text.GetComponent<MeshRenderer>().sortingOrder = -coords.a;
+        _text.text = FieldMap.current.GetHeight(coords).ToString();
 	}
     
 	public static void Spawn(Node node, Transform parent,
-		GameObject tilePrefab, Vector2 spawnLocation)
+		GameObject tilePrefab, HexTerrain terrain)
     {
 		GameObject hexObj = Instantiate(tilePrefab);
 		hexObj.transform.parent = parent;
-        hexObj.transform.localPosition = spawnLocation;
+        hexObj.transform.localPosition = Map.Position(node.coords);
         HexTile tile = hexObj.GetComponent<HexTile>();
+        tile.terrain = terrain;
 		node.tile = tile;
         tile._node = node;
 	}
@@ -50,13 +61,24 @@ public class HexTile : MonoBehaviour {
 	}
 
 	public void highlight(Color color) {
+        darken(0);
         _telegraph.gameObject.SetActive(true);
         _telegraph.material.color = color;
-	}
+    }
+
+    public void darken(float v)
+    {
+        Color shade = new Color(1.0f - v, 1.0f - v, 1.0f - v);
+        mainRenderer.material.SetColor("_Color", shade);
+        _tileRenderer?.material.SetColor("_Color", shade);
+        _fgRenderer?.material.SetColor("_Color", shade);
+        _bgRenderer?.material.SetColor("_Color", shade);
+    }
 
     public void resetColor ()
     {
         _telegraph.gameObject.SetActive(false);
+        darken(0);
     }
 
 	public void outline(Color color) {

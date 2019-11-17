@@ -51,26 +51,8 @@ public class MoveCombatPhase : CombatPhase {
 	{
 		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
 		{
-            /*
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePos,Vector2.zero);
-			if (hit) {
-                if (hit.transform.tag == "Tile") {
-					HexTile hitTile = hit.transform.GetComponent<HexTile> ();
-                    if (hitTile.selectable)
-                    {
-                        moveCommand = targeter.ChooseTarget(hitTile, true);
-                        UIManager.setHexCursor(hitTile);
-                        FieldMap.current.showSelectable();
-                        UIManager.button(ButtonName.CONFIRM).gameObject.SetActive(true);
-                    } else
-                    {
-                        moveCommand?.Show(false);
-                    }
-				}
-			}
-            */
             HexTile hitTile = UIManager.GetClickedTile();
+            if (hitTile == null) { return; }
             if (hitTile.selectable)
             {
                 moveCommand = targeter.ChooseTarget(hitTile, true);
@@ -116,21 +98,13 @@ public class AbilityCombatPhase : CombatPhase
         //Targeter targeter = CombatManager.currentUnit.currentAbility.targeter;
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = 
-                Physics2D.Raycast(mousePos, Vector2.zero, 9999,LayerMask.GetMask(layerMask));
-            if (hit)
+            HexTile hitTile = UIManager.GetClickedTile();
+            if (hitTile == null) { return; }
+            if (hitTile.selectable)
             {
-                if (hit.transform.tag == "Tile")
-                {
-                    HexTile hitTile = hit.transform.GetComponent<HexTile>();
-                    if (hitTile.selectable)
-                    {
-                        command = (AbilityCommand)targeter.ChooseTarget(hitTile, true);
-                        UIManager.setHexCursor(hitTile, true);
-                        UIManager.button(ButtonName.CONFIRM).gameObject.SetActive(true);
-                    }
-                }
+                command = (AbilityCommand)targeter.ChooseTarget(hitTile, true);
+                UIManager.setHexCursor(hitTile, true);
+                UIManager.button(ButtonName.CONFIRM).gameObject.SetActive(true);
             }
         }
     }

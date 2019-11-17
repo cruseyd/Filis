@@ -1165,6 +1165,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1035986534}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &568278961 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8204818320631277803, guid: 3a9b41ff38df4224991182ab3904895e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1035986534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &568278962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568278960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d344d6ad11d2baf48843c0b99bd5a7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  depthOffset: -1
+  heightOffset: 0
+  sprite: {fileID: 568278961}
 --- !u!1 &656254289 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2251690987653676950, guid: 07217231a77c11f4e83b75eae83ff9f9,
@@ -1411,16 +1432,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 15422ff017d90c94b87751174424d0c8, type: 2}
     - {fileID: 11400000, guid: 500ee8432d18201459814de67b985468, type: 2}
     - {fileID: 11400000, guid: a9dc75e912eab564496abf476dc96c7a, type: 2}
-    team: 1
-  - species: {fileID: 11400000, guid: 7f0a3d170c1cc8347969d35005a65f08, type: 2}
-    movement: 3
-    speed: 12
-    maxHealth: 150
-    abilities:
-    - {fileID: 11400000, guid: 7bfdc7dad3e7e9a49b50db5a8e5c7acc, type: 2}
-    - {fileID: 11400000, guid: 15422ff017d90c94b87751174424d0c8, type: 2}
-    - {fileID: 11400000, guid: bdbf74a1ff24a7c46a3742528405faca, type: 2}
-    - {fileID: 11400000, guid: 471f83d463933154687405e640c5f6b6, type: 2}
     team: 0
   unitPrefab: {fileID: 4291842842039063607, guid: a79f637a5adecd8439c52dea8f18403c,
     type: 3}
@@ -2443,10 +2454,11 @@ MonoBehaviour:
   hexPrefab: {fileID: 2952040942192522044, guid: 6df02098223765947811127a4a8c61d4,
     type: 3}
   radius: 2
-  numHeightLevels: 10
+  numHeightLevels: 3
   xOffset: 0
   yOffset: 0
   elevationSampleRate: 0.1
+  terrainPrefab: {fileID: 11400000, guid: 03f362edafd2dca4b865407384a262a2, type: 2}
 --- !u!4 &1417910219
 Transform:
   m_ObjectHideFlags: 0

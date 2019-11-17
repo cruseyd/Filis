@@ -7,10 +7,9 @@ public class Unit : MonoBehaviour
 {
 
     public static Unit current;
-
-    [SerializeField] private Vector3 posOffset = Vector3.zero;
+    
     [SerializeField] private DoubleClick doubleClick;
-    [SerializeField] private float moveAnimationSpeed = 5.0f;
+    [SerializeField] private float moveAnimationSpeed = 1.0f;
     
     private HexTile _currentTile;
     public HexTile currentTile { get { return _currentTile; } }
@@ -70,8 +69,9 @@ public class Unit : MonoBehaviour
     public void SetPosition(HexTile tile)
     {
         _currentTile = tile;
+        this.transform.position = tile.transform.position;
         tile.occupant = this.transform;
-        transform.position = currentTile.transform.position + posOffset;
+        GetComponentInChildren<RenderHeight>().RenderAt(tile.transform);
         
     }
     public bool SetAbility(int index)
@@ -141,7 +141,7 @@ public class Unit : MonoBehaviour
         {
             HexTile target = path.next;
             Vector2 start = transform.position;
-            Vector2 end = target.transform.position + posOffset;
+            Vector2 end = target.transform.position;
             if (end.x - start.x > 0)
             {
                 img.localScale = new Vector3(-1, 1, 1);
@@ -157,9 +157,9 @@ public class Unit : MonoBehaviour
                 t += moveAnimationSpeed * Time.deltaTime;
                 if (t > 0.5f && currentTile != target)                {
                     _currentTile = target;
-                    //img.GetComponent<SpriteRenderer>().sortingOrder = 0 - target.coords.a;
                 }
                 transform.position = Vector2.Lerp(start, end, t);
+                GetComponent<RenderHeight>().RenderAt(transform);
                 yield return null;
             }
         }

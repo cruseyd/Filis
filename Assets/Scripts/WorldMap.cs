@@ -5,6 +5,8 @@ using UnityEngine;
 public class WorldMap : Map
 {
 
+    [SerializeField] HexTerrain terrainPrefab;
+
     public List<Node> regionBounds;
     public List<Node> worldBounds;
     public List<Vertex> riverStarts;
@@ -166,8 +168,7 @@ public class WorldMap : Map
         graph.resetNodes();
         graph.Center().Visit(
             (n) => {
-                HexTile.Spawn(n, this.transform, hexPrefab,
-                    Position(n.coords));
+                HexTile.Spawn(n, this.transform, hexPrefab, terrainPrefab);
             }
         );
     }

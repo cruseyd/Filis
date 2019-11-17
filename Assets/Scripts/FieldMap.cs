@@ -6,14 +6,12 @@ public class FieldMap : Map
 {
     public static FieldMap current;
     public int radius = 7;
-    public int numHeightLevels = 10;
-    [SerializeField]
-    private float xOffset;
-    [SerializeField]
-    private float yOffset;
-    [SerializeField]
-    private float elevationSampleRate = 1.0f;
+    public int numHeightLevels = 1;
 
+    [SerializeField] private float xOffset;
+    [SerializeField] private float yOffset;
+    [SerializeField] private float elevationSampleRate = 1.0f;
+    [SerializeField] private HexTerrain terrainPrefab;
     public void Awake()
     {
         if (Map.current != null) { Destroy(this.gameObject); }
@@ -25,7 +23,7 @@ public class FieldMap : Map
         graph = new HexGraph(radius);
         Generate();
         SpawnTiles();
-        //setTopography(true);
+        setTopography(true);
         Camera.main.GetComponent<CameraFollow>().maxSize = (radius + 1) * Mathf.Sqrt(2.0f / 3);
     }
 
@@ -58,8 +56,7 @@ public class FieldMap : Map
         graph.resetNodes();
         graph.Center().Visit(
             (n) => {
-                HexTile.Spawn(n, this.transform, hexPrefab,
-                    Position(n.coords));
+                HexTile.Spawn(n, this.transform, hexPrefab, terrainPrefab);
             }
         );
     }
@@ -70,7 +67,7 @@ public class FieldMap : Map
         {
             if (!node.selectable)
             {
-                node.tile.highlight(Color.black);
+                node.tile.darken(0.5f);
             }
         }
     }

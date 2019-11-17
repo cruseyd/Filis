@@ -13,11 +13,16 @@ public class RenderHeight : MonoBehaviour
     [SerializeField] private Transform sprite;
     void Start()
     {
-        float y = sprite.position.y - heightOffset + depthOffset * 0.25f;
+        RenderAt(transform);
+    }
+
+    public void RenderAt(Transform tileLocation)
+    {
+        float z = tileLocation.position.y + depthOffset * 0.25f;
         sprite.position = new Vector3(
-            sprite.position.x,
-            sprite.position.y,
-            y
+            tileLocation.position.x,
+            tileLocation.position.y + heightOffset,
+            z
             );
     }
 
