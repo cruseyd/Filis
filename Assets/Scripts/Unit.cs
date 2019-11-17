@@ -155,8 +155,7 @@ public class Unit : MonoBehaviour
             while (t < 1)
             {
                 t += moveAnimationSpeed * Time.deltaTime;
-                if (t > 0.5f && currentTile != target)
-                {
+                if (t > 0.5f && currentTile != target)                {
                     _currentTile = target;
                     //img.GetComponent<SpriteRenderer>().sortingOrder = 0 - target.coords.a;
                 }
